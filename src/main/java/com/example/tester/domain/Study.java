@@ -1,4 +1,6 @@
-package com.example.tester;
+package com.example.tester.domain;
+
+import com.example.tester.domain.study.StudyStatus;
 
 public class Study {
 
