@@ -1,11 +1,13 @@
 package com.example.tester.domain.study;
 
+import com.example.tester.domain.member.Member;
 import com.example.tester.domain.study.StudyStatus;
 
 public class Study {
 
     private StudyStatus status = StudyStatus.DRAFT;
     private int limit;
+    private Member owner;
 
     public Study() {}
 
@@ -22,5 +24,9 @@ public class Study {
 
     public int getLimit() {
         return this.limit;
+    }
+
+    public void setOwner(Member member) {
+        this.owner = member;
     }
 }
