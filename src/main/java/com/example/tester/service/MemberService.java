@@ -1,6 +1,6 @@
-package com.example.tester.domain.member;
+package com.example.tester.service;
 
-import com.example.tester.domain.Member;
+import com.example.tester.domain.member.Member;
 
 import java.util.Optional;
 

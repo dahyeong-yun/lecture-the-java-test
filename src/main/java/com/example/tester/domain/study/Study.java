@@ -1,10 +1,10 @@
-package com.example.tester.domain;
+package com.example.tester.domain.study;
 
 import com.example.tester.domain.study.StudyStatus;
 
 public class Study {
 
-    private StudyStatus status = StudyStatus.STARTED;
+    private StudyStatus status = StudyStatus.DRAFT;
     private int limit;
 
     public Study() {}
@@ -17,10 +17,10 @@ public class Study {
     }
 
     public StudyStatus getStatus() {
-        return status;
+        return this.status;
     }
 
     public int getLimit() {
-        return limit;
+        return this.limit;
     }
 }
