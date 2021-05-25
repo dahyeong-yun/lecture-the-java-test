@@ -1,6 +1,6 @@
 package com.example.tester;
 
-import com.example.tester.domain.Study;
+import com.example.tester.domain.study.Study;
 import com.example.tester.domain.study.StudyStatus;
 import org.junit.jupiter.api.*;
 
@@ -44,11 +44,11 @@ class StudyTest {
      * */
     @Test
     void 한번에_많은_테스트를_하는_방법() {
-        Study study =  new Study(-10);
+        Study study =  new Study(1);
         assertAll(
                 () -> assertNotNull(study),
                 () -> assertEquals(StudyStatus.DRAFT, study.getStatus(), "스터디의 기본 상태는 DRAFT"),
-                () -> assertTrue(study.getLimit() > 0, "스터디의 기본 상태는 DRAFT")
+                () -> assertTrue(study.getLimit() > 0, "스터디의 인원 제한은 0 초과")
         );
     }
 
@@ -62,6 +62,7 @@ class StudyTest {
      * 전체 실행 시간을 죽 기다린 다음에 테스트 하고자 했던 시간과 비교하는 방법
      * */
     @Test
+    @Disabled
     void 걸리는_시간을_테스트_하는_방법1() {
         assertTimeout(Duration.ofMillis(100), () -> {
             new Study(10);
@@ -74,6 +75,7 @@ class StudyTest {
      * 이때는 별개의 스레드로 작동하기 떄문에, 테스트 안의 로직이 예상치 못한 실행 결과를 가져 올 수 있다.
      * */
     @Test
+    @Disabled
     void 걸리는_시간을_테스트_하는_방법2() {
         assertTimeoutPreemptively(Duration.ofMillis(100), () -> {
             new Study(10);
