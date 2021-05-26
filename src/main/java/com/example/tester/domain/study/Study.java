@@ -3,12 +3,15 @@ package com.example.tester.domain.study;
 import com.example.tester.domain.member.Member;
 import com.example.tester.domain.study.StudyStatus;
 
+import java.time.LocalDateTime;
+
 public class Study {
 
     private StudyStatus status = StudyStatus.DRAFT;
     private int limit;
     private Member owner;
     private String name;
+    private LocalDateTime openedDateTime;
 
     public Study() {}
 
@@ -33,11 +36,20 @@ public class Study {
         return this.limit;
     }
 
+    public Member getOwner() {
+        return this.owner;
+    }
+
+    public LocalDateTime getOpenedDateTime() {
+        return openedDateTime;
+    }
+
     public void setOwner(Member member) {
         this.owner = member;
     }
 
-    public Member getOwner() {
-        return this.owner;
+    public void open() {
+        this.openedDateTime = LocalDateTime.now();
+        this.status = StudyStatus.OPENED;
     }
 }
