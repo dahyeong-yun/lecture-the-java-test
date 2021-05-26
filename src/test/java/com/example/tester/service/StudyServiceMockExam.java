@@ -55,8 +55,8 @@ public class StudyServiceMockExam {
 
         Study study = new Study(10, "테스트");
 
-        when(memberService.findById(1L)).thenReturn(Optional.of(member));
-        when(studyRepository.save(study)).thenReturn(study);
+        when(memberServiceParam.findById(1L)).thenReturn(Optional.of(member));
+        when(studyRepositoryParam.save(study)).thenReturn(study);
 
         studyService.createNewStudy(1L, study);
         assertEquals(member, study.getOwner());
