@@ -18,6 +18,10 @@ public class Study {
         this.limit = limit;
     }
 
+    public Study(int limit, String java) {
+
+    }
+
     public StudyStatus getStatus() {
         return this.status;
     }
