@@ -82,6 +82,5 @@ public class StudyServiceMockAnnotationTest {
             memberService.findById(1L);
         });
         assertEquals(Optional.empty(), memberService.findById(1L));
-
     }
 }

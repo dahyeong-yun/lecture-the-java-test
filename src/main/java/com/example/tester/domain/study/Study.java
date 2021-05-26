@@ -8,6 +8,7 @@ public class Study {
     private StudyStatus status = StudyStatus.DRAFT;
     private int limit;
     private Member owner;
+    private String name;
 
     public Study() {}
 
@@ -18,9 +19,11 @@ public class Study {
         this.limit = limit;
     }
 
-    public Study(int limit, String java) {
-
+    public Study(int limit, String name) {
+        this.limit = limit;
+        this.name = name;
     }
+
 
     public StudyStatus getStatus() {
         return this.status;
@@ -32,5 +35,9 @@ public class Study {
 
     public void setOwner(Member member) {
         this.owner = member;
+    }
+
+    public Member getOwner() {
+        return this.owner;
     }
 }
