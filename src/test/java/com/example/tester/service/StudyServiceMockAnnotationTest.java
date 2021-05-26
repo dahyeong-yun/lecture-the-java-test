@@ -13,6 +13,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -123,5 +125,28 @@ public class StudyServiceMockAnnotationTest {
         inOrder.verify(memberServiceParam).notify(member);
 
         // verifyNoMoreInteractions(memberServiceParam); // 이후 한번도 호출되지 않아야 할 때
+    }
+
+    @Test
+    void Mockito_BDD_API를_사용했을_경우(@Mock MemberService memberServiceParam, @Mock StudyRepository studyRepositoryParam) {
+        // given
+        StudyService studyService = new StudyService(memberServiceParam, studyRepositoryParam);
+
+        Member member = new Member();
+        member.setId(1L);
+        member.setEmail("gryb809@gmail.com");
+
+        Study study = new Study(10, "테스트");
+
+        given(memberServiceParam.findById(1L)).willReturn(Optional.of(member));
+        given(studyRepositoryParam.save(study)).willReturn(study);
+
+        // when
+        studyService.createNewStudy(1L, study);
+
+        // then
+        InOrder inOrder = inOrder(memberServiceParam);
+        then(memberServiceParam).should(times(1)).notify(study);
+        // then(memberServiceParam).shouldHaveNoInteractions();
     }
 }
