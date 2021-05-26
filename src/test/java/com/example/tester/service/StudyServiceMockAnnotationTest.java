@@ -1,7 +1,6 @@
 package com.example.tester.service;
 
 import com.example.tester.domain.member.Member;
-import com.example.tester.domain.study.Study;
 import com.example.tester.repository.StudyRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

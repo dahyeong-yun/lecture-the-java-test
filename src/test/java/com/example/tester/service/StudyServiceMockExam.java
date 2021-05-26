@@ -3,12 +3,10 @@ package com.example.tester.service;
 import com.example.tester.domain.member.Member;
 import com.example.tester.domain.study.Study;
 import com.example.tester.repository.StudyRepository;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
